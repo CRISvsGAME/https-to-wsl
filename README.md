@@ -66,7 +66,7 @@ if ($NetFirewallRule) {
     -Action $Action -Direction $Direction -Enabled $Enabled `
     -LocalPort $LocalPort -Protocol $Protocol
 
-    Write-Host "Firewall Rule '$Name' is created successfully."
+    Write-Host "Firewall Rule '$Name' has been created successfully."
 }
 
 $ListenAddress = "0.0.0.0"
@@ -74,10 +74,10 @@ $ListenPort = "443"
 $ConnectAddress = (wsl hostname -I).Split(" ")[0].Trim()
 $ConnectPort = "443"
 
-Write-Host "PortProxy Rule 'HTTPS to WSL'. Creating new rule..."
+Write-Host "PortProxy Rule 'HTTPS to WSL'. Updating the rule..."
 
 netsh interface portproxy add v4tov4 listenaddress=$ListenAddress `
 listenport=$ListenPort connectaddress=$ConnectAddress connectport=$ConnectPort
 
-Write-Host "PortProxy Rule 'HTTPS to WSL' is created successfully."
+Write-Host "PortProxy Rule 'HTTPS to WSL' has been updated successfully."
 ```
